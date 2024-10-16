@@ -1,0 +1,31 @@
+# Visual Studio
+*.suo
+*.user
+*.sln.docstates
+*.tmp
+*.userprefs
+*.ntvs*
+*.suo.cache
+*.vspscc
+*.vssscc
+.vs/
+_Local.appsettings
+*.user
+
+# Build outputs
+*.dll
+*.exe
+*.pdb
+*.config
+*.nupkg
+*.symbols
+
+# Other
+*.log
+*_temp
+bin/
+obj/
+packages/
+
+# User-specific files
+.vscode/
