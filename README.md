@@ -7,15 +7,15 @@ obs: pasta certificados vou colocar aqueles que achar mais relevantes pois a dio
 
 ### seções
 
-[x] intro 
-[x] sintax c# 
-[ ] dados & listas
-[ ] poo (to devendo, me acho meio ruim não uso com frequencia)
-[ ] db
-[ ] api
+- [x] intro 
+- [x] sintax c# 
+- [ ] dados & listas
+- [ ] poo (to devendo, me acho meio ruim não uso com frequencia)
+- [ ] db
+- [ ] api
 
 ##### o que me interessa
-[ ] boas praticas
-[ ] cloud azure
-[ ] dotnet in azure
+- [ ] boas praticas
+- [ ] cloud azure
+- [ ] dotnet in azure
 
