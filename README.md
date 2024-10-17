@@ -9,7 +9,7 @@ obs: pasta certificados vou colocar aqueles que achar mais relevantes pois a dio
 
 - [x] intro 
 - [x] sintax c# 
-- [ ] dados & listas
+- [x] dados & listas
 - [ ] poo (to devendo, me acho meio ruim não uso com frequencia)
 - [ ] db
 - [ ] api
