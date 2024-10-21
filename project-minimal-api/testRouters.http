@@ -1,0 +1,24 @@
+# extensão restclient 
+@HostAddress = http://localhost:5229
+
+GET {{HostAddress}}
+Accept: application/json
+###
+
+POST {{HostAddress}}/login/
+Content-Type: application/json
+
+{
+  "Email": "adm@test.com",
+  "Password": "123456"
+}
+###
+
+POST {{HostAddress}}/login/
+Content-Type: application/json
+
+{
+  "Email": "adm1@test.com",
+  "Password": "errpass"
+}
+### err post 
