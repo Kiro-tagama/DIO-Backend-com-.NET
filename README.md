@@ -10,8 +10,8 @@ obs: pasta certificados vou colocar aqueles que achar mais relevantes pois a dio
 - [x] intro 
 - [x] sintax c# 
 - [x] dados & listas
-- [ ] poo (to devendo, me acho meio ruim não uso com frequencia)
-- [ ] db
+- [x] poo (vou me perder nos termos mas entendo sua essencia)
+- [x] db (principal microsoft sql server, alinha de nosql com mongodb principalmente e um pouco de redis)
 - [ ] api
 
 ##### o que me interessa
