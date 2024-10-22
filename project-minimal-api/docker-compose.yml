@@ -5,8 +5,8 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: 123456
+      MYSQL_ROOT_PASSWORD: password123456
+      MYSQL_DATABASE: minimal_api
     ports:
       - "3306:3306"
     volumes:
