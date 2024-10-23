@@ -9,7 +9,7 @@ comands to run:
 start
 ```bash
   docker compose up -d
-  sleep 10 # sleep 10 seconds to start db
+  sleep 10 # sleep 10 seconds to start db (linux)
   dotnet run # dotnet watch run
 ```
 
@@ -21,12 +21,11 @@ docker exec -it project-minimal-api-mysql-1 mysql -uroot -ppassword123456 -e "SH
 others
 ```bash
   dotnet ef migrations add NameOfMigrations
-  
-  # in the video the guy uses this to reproduce the Seed but it's the same command
-  dotnet ef migrations add SeedName
+
+  dotnet ef database update
 ```
 ??????
 
 ---
-problems:
-- has a problem to conection with db
+
+problems: (no problens ...)
