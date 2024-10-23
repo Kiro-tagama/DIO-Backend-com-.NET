@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MinimalApi.Domain.Administrator;
+using MinimalApi.Domain.Entities;
 
 namespace MinimalApi.Infrastructure.Db;
 
@@ -11,20 +11,31 @@ public class DbConnect : DbContext
      _configurationApp = configurationApp;
   }
 
-  public DbSet<Administrator> Administradores { get; set; } = default!;
+  public DbSet<Administrator> Administrators { get; set; } = default!;
+
+  // seed: inputa direto no db
+  protected override void OnModelCreating(ModelBuilder modelBuilder){
+    modelBuilder.Entity<Administrator>().HasData(
+      new Administrator { 
+        Id = 1, 
+        Email = "adm@test.com",
+        Password = "123456",
+        Profile = "admin"  // admin, user, guest
+      }
+    );
+  }
 
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
   {
-    var stringConexao = _configurationApp.GetConnectionString("mysqlConnection")?.ToString();
-    Console.WriteLine("code conection", stringConexao);
+    var stringConnection = _configurationApp.GetConnectionString("mysqlConnection")?.ToString();
 
     if(!optionsBuilder.IsConfigured)
     {
-      if(!string.IsNullOrEmpty(stringConexao))
+      if(!string.IsNullOrEmpty(stringConnection))
       {
         optionsBuilder.UseMySql(
-          stringConexao,
-          ServerVersion.AutoDetect(stringConexao)
+          stringConnection,
+          ServerVersion.AutoDetect(stringConnection)
         );
       }
     }
