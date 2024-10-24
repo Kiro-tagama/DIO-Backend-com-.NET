@@ -30,7 +30,7 @@ public class VehicleServices : IVehicleServices{
       return _connect.Vehicles.Where(x => x.Id == id).FirstOrDefault();
     }
 
-    public List<Vehicle> GetVehicles(int page = 1, string? name = null, string? mark = null)
+    public List<Vehicle> GetVehicles(int? page = 1, string? name = null, string? mark = null)
     {
       var query = _connect.Vehicles.AsQueryable();
 
@@ -39,7 +39,8 @@ public class VehicleServices : IVehicleServices{
 
       int itemsPerPage = 10;
 
-      query = query.Skip((page - 1) * itemsPerPage).Take(itemsPerPage);
+      if(page != null)
+        query = query.Skip((int)((page - 1) * itemsPerPage)).Take(itemsPerPage);
 
       return query.ToList();
     }

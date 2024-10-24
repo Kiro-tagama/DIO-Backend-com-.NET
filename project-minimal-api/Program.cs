@@ -5,6 +5,7 @@ using MinimalApi.Domain.Services;
 using MinimalApi.Domain.ModelViews;
 using MinimalApi.DTOs;
 using MinimalApi.Infrastructure.Db;
+using MinimalApi.Domain.Entities;
 
 #region Builder
 var builder = WebApplication.CreateBuilder(args);
@@ -41,9 +42,10 @@ app.MapGet("/", async (DbConnect dbConnect) => {
   catch (Exception ex){
     return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
   }
-});
+})
+.WithTags("Home");
 
-app.MapPost("/login", 
+app.MapPost("/administrator/login", 
 ( 
   [FromBody] 
   LoginDTO loginDTO,
@@ -60,32 +62,122 @@ app.MapPost("/login",
   {
     return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
   }
-});
+})
+.WithTags("Administrator");
 #endregion
 
 #region Vehicle
-  app.MapPost("/vehicles", 
-( 
-  [FromBody] 
+app.MapPost("/vehicles", 
+(
+  [FromBody]
   VehicleDTO vehicleDTO,
   IVehicleServices vehicleServices
-) =>{
+) => {
   try{
-    // var vehicle = new Vehicle{
-    //   Name = VehicleDTO.Name,
-    //   Mark = VehicleDTO.Mark,
-    //   Year = VehicleDTO.Year
-    // };
+    var vehicle = new Vehicle{
+      Name = vehicleDTO.Name,
+      Mark = vehicleDTO.Mark,
+      Year = vehicleDTO.Year
+    };
 
-    // vehicleServices.AddVehicle();
+    vehicleServices.AddVehicle(vehicle);
 
-    // return Results.Created($"/vehicle/{vehicle.Id}", vehicle);
+    return Results.Created($"/vehicle/{vehicle.Id}", vehicle);
   }
   catch (System.Exception ex)
   {
     return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
   }
-});
+})
+.WithTags("Vehicle");
+
+app.MapGet("/vehicles", 
+(
+  [FromQuery]
+  int? page,
+  IVehicleServices vehicleServices
+) => {
+  try{
+    var vehicles = vehicleServices.GetVehicles(page);
+
+    return vehicles.Count() > 0 
+      ? Results.Ok(vehicles) 
+      : Results.NotFound();
+  }
+  catch (System.Exception ex)
+  {
+    return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
+  }
+})
+.WithTags("Vehicle");
+
+app.MapGet("/vehicles/{id}", 
+(
+  [FromRoute]
+  int id,
+  IVehicleServices vehicleServices
+) => {
+  try{
+    var vehicle = vehicleServices.GetVehicleById(id);
+
+    return vehicle != null 
+      ? Results.Ok(vehicle) 
+      : Results.NotFound();
+  }
+  catch (System.Exception ex)
+  {
+    return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
+  }
+})
+.WithTags("Vehicle");
+
+app.MapPut("/vehicles/{id}", 
+(
+  [FromRoute]
+  int id,
+  VehicleDTO vehicleDTO,
+  IVehicleServices vehicleServices
+) => {
+  try{
+    var vehicle = vehicleServices.GetVehicleById(id);
+
+    if(vehicle == null) return Results.NotFound();
+
+    vehicle.Name = vehicleDTO.Name;
+    vehicle.Mark = vehicleDTO.Mark;
+    vehicle.Year = vehicleDTO.Year;
+
+    vehicleServices.UpdateVehicle(vehicle);
+
+    return Results.Ok(vehicle); 
+  }
+  catch (System.Exception ex)
+  {
+    return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
+  }
+})
+.WithTags("Vehicle");
+
+app.MapDelete("/vehicles/{id}", 
+(
+  [FromRoute]
+  int id,
+  IVehicleServices vehicleServices
+) => {
+  try{
+    var vehicle = vehicleServices.GetVehicleById(id);
+    if (vehicle == null) return Results.NotFound();
+
+    vehicleServices.DeleteVehicle(vehicle);
+
+    return Results.Ok(vehicle);
+  }
+  catch (System.Exception ex)
+  {
+    return Results.Json(new { message = "Erro", detail = ex.Message }, statusCode: 500);
+  }
+})
+.WithTags("Vehicle");
 #endregion
 
 app.UseSwagger();
