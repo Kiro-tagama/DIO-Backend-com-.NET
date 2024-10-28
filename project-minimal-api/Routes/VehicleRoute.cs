@@ -3,6 +3,7 @@ using MinimalApi.DTOs;
 using MinimalApi.Domain.Interface;
 using MinimalApi.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MinimalApi.Route;
 public class VehicleRoute{
@@ -52,6 +53,7 @@ public class VehicleRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm,Editor" })
     .WithTags("Vehicle");
 
     route.MapGet("/vehicles", 
@@ -73,6 +75,7 @@ public class VehicleRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm,Editor" })
     .WithTags("Vehicle");
 
     route.MapGet("/vehicles/{id}", 
@@ -94,6 +97,7 @@ public class VehicleRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm,Editor" })
     .WithTags("Vehicle");
 
     route.MapPut("/vehicles/{id}", 
@@ -125,6 +129,7 @@ public class VehicleRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
     .WithTags("Vehicle");
 
     route.MapDelete("/vehicles/{id}", 
@@ -147,6 +152,7 @@ public class VehicleRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
     .WithTags("Vehicle");
   }
 }

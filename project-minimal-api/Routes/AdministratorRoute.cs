@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MinimalApi.Domain.Entities;
@@ -100,6 +101,7 @@ public class AdministratorRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
     .WithTags("Administrator");
 
     route.MapGet("/administrator", 
@@ -130,6 +132,7 @@ public class AdministratorRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
     .WithTags("Administrator");
 
     route.MapGet("/administrator/{id}", 
@@ -156,6 +159,7 @@ public class AdministratorRoute{
       }
     })
     .RequireAuthorization()
+    .RequireAuthorization(new AuthorizeAttribute { Roles = "Adm" })
     .WithTags("Administrator");
   }
 }
