@@ -20,7 +20,7 @@ public class DbConnect : DbContext
         Id = 1, 
         Email = "adm@test.com",
         Password = "123456",
-        Profile = "admin"  // admin, user, guest
+        Profile = "Adm" 
       }
     );
   }
