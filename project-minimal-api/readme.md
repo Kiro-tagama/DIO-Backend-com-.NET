@@ -23,6 +23,13 @@ others
   dotnet ef migrations add NameOfMigrations
 
   dotnet ef database update
+
+  # cria solution
+  dotnet new sln
+  dotnet sln add Api/project-minimal-api.csproj 
+
+  # add referencia do projetos test para ter acesso a api
+  dotnet add reference ../Api/project-minimal-api.csproj 
 ```
 ??????
 
