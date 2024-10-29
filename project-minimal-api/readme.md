@@ -15,7 +15,7 @@ start
 
 to check db in docker
 ```bash
-docker exec -it project-minimal-api-mysql-1 mysql -uroot -ppassword123456 -e "SHOW DATABASES;"
+  docker exec -it project-minimal-api-mysql-1 mysql -uroot -ppassword123456 -e "SHOW DATABASES;"
 ```
 
 others
@@ -31,7 +31,6 @@ others
   # add referencia do projetos test para ter acesso a api
   dotnet add reference ../Api/project-minimal-api.csproj 
 ```
-??????
 
 ---
 

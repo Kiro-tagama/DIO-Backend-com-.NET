@@ -1,5 +1,6 @@
 start a dump in docker
 
+instructions used in test
 ```bash
   docker exec -it project-minimal-api-mysql-1 bash
 

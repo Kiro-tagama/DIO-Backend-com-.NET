@@ -13,6 +13,7 @@ public class AdministratorServicesTest
     string[] profileType = new string[2] { "Adm", "Editor" };
 
     private DbConnect CreatingContext(){
+        // esse path ref a o arquivo appsettings.json do /Test
         var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         var path = Path.GetFullPath(Path.Combine(assemblyPath ?? "", "..", "..", ".."));
 
@@ -28,6 +29,8 @@ public class AdministratorServicesTest
 
     [TestMethod]
     public void TestSaveAdm(){
+      var context = CreatingContext();
+      context.Database.ExecuteSqlRaw("TRUNCATE TABLE Administrators");
 
       // Arrange
       var administrator = new Administrator();
@@ -36,16 +39,34 @@ public class AdministratorServicesTest
       administrator.Password = "password123";
       administrator.Profile = profileType[0];
 
-      var context = CreatingContext();
       var admService = new AdministratorServices(context);
       
       // act
-      admService.
+      admService.AddAdministrator(administrator);
 
       // assert
-      Assert.AreEqual(1, administrator.Id);
-      Assert.AreEqual("john.doe@example.com", administrator.Email);
-      Assert.AreEqual("password123", administrator.Password);
-      Assert.AreEqual(profileType[0], administrator.Profile);
+      Assert.AreEqual(1, admService.GetAllAdministrators(1).Count());
+    }
+ 
+    [TestMethod]
+    public void TestFindById(){
+      var context = CreatingContext();
+      context.Database.ExecuteSqlRaw("TRUNCATE TABLE Administrators");
+
+      // Arrange
+      var administrator = new Administrator();
+      administrator.Id = 1;
+      administrator.Email = "john.doe@example.com";
+      administrator.Password = "password123";
+      administrator.Profile = profileType[0];
+
+      var admService = new AdministratorServices(context);
+      
+      // act
+      admService.AddAdministrator(administrator);
+      var findAdm = admService.GetAdministratorById(administrator.Id);
+
+      // assert
+      Assert.AreEqual(1, findAdm.Id);
     }
 }
