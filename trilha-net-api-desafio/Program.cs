@@ -28,6 +28,30 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.MapGet("/api", async (OrganizadorContext dbContext) =>
+{
+    string dbStatus;
+
+    try
+    {
+        await dbContext.Database.ExecuteSqlRawAsync("SELECT 1");
+        dbStatus = "Connected";
+    }
+    catch (Exception ex)
+    {
+        dbStatus = $"Disconnected: {ex.Message}";
+    }
+
+    var status = new
+    {
+        ApiStatus = "Running",
+        DbStatus = dbStatus
+    };
+
+    return Results.Ok(status);
+})
+.WithTags("*Status");
+
 app.MapControllers();
 
 app.Run();

@@ -12,7 +12,7 @@ obs: pasta certificados vou colocar aqueles que achar mais relevantes pois a dio
 - [x] dados & listas
 - [x] poo (vou me perder nos termos mas entendo sua essencia)
 - [x] db (principal microsoft sql server, alinha de nosql com mongodb principalmente e um pouco de redis)
-- [ ] api
+- [x] api
 
 ##### o que me interessa
 - [ ] boas praticas
