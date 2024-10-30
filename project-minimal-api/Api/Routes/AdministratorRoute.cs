@@ -8,7 +8,6 @@ using MinimalApi.Domain.Entities;
 using MinimalApi.Domain.Enuns;
 using MinimalApi.Domain.Interface;
 using MinimalApi.Domain.ModelViews;
-using MinimalApi.Dominio.ModelViews;
 using MinimalApi.DTOs;
 
 namespace MinimalApi.Route;

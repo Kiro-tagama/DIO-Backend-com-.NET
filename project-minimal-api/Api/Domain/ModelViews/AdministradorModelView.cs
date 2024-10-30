@@ -1,4 +1,4 @@
-namespace MinimalApi.Dominio.ModelViews;
+namespace MinimalApi.Domain.ModelViews;
 
 public record AdministradorModelView
 {

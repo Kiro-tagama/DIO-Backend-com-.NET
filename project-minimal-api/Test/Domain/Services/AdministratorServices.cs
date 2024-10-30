@@ -67,6 +67,6 @@ public class AdministratorServicesTest
       var findAdm = admService.GetAdministratorById(administrator.Id);
 
       // assert
-      Assert.AreEqual(1, findAdm.Id);
+      Assert.AreEqual(1, findAdm?.Id);
     }
 }
