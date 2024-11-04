@@ -41,11 +41,29 @@ TMP I - tempo de inatividade
 
 ## Tipos de serviços
 
-![Sou uma imagem](https://www.cimm.com.br/portal/uploads/cimm/asset/file/7447/large_aplicativos_hospedados.png)
+![serviços azure](https://www.cimm.com.br/portal/uploads/cimm/asset/file/7447/large_aplicativos_hospedados.png)
 
 - IaaS - infraestrutura como serviço
-  - base inicial
+  - base inicial com toda flexibilidade onde tu faz tudo (gerenciamento geral)
 - PaaS - plataforma como serviço
   - base media com SO e tool dev
+  - foca no desenvolvimento do aplicativo e gerenciamento da plataforma pela cloud
 - SaaS - software como serviço
   - base final que engloba tudo e inclui o app em sim
+  - tem menor controle geral de configurações
+
+![Modelo de responsabilidade compartilhada](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRid2EKR1jvnoZR593dIbCU7W96KmZv--1KZg&s)
+
+Saas sendo menos trabalhoso para nós (cliente)
+
+O uso de IaaS, PaaS e SaaS depende do perfil da empresa e das suas necessidades, como o tamanho, o tipo de atividade e o orçamento: 
+
+### IaaS
+É indicado para empresas que precisam de uma infraestrutura virtualizada, como armazenamento, servidores e redes, e que desejam ter mais controle sobre os sistemas operacionais. É uma boa opção para empresas de pequeno e médio porte que estão crescendo, para varejistas online, startups e para quem precisa de uma infraestrutura para ambientes de teste e desenvolvimento. 
+
+### PaaS
+É indicado para empresas que precisam de uma plataforma para desenvolver aplicativos, sem ter que gerenciar toda a infraestrutura. É uma boa opção para organizações com desenvolvedores próprios, para empresas de tecnologia e para quem precisa de uma infraestrutura complexa para integrar dados ou executar tarefas. 
+
+### SaaS
+É indicado para empresas que precisam de uma solução completa de software, sem a necessidade de instalar ou gerenciar aplicações. É uma boa opção para pequenas empresas que não dispõem de orçamento suficiente para comprar licenças, para projetos de curta duração e para quem precisa acessar aplicativos remotamente. 
+A escolha entre IaaS, PaaS ou SaaS também depende da disponibilidade de investimento e do tempo que será dedicado para a implantação e manutenção da solução em nuvem. 
