@@ -67,3 +67,4 @@ O uso de IaaS, PaaS e SaaS depende do perfil da empresa e das suas necessidades,
 ### SaaS
 É indicado para empresas que precisam de uma solução completa de software, sem a necessidade de instalar ou gerenciar aplicações. É uma boa opção para pequenas empresas que não dispõem de orçamento suficiente para comprar licenças, para projetos de curta duração e para quem precisa acessar aplicativos remotamente. 
 A escolha entre IaaS, PaaS ou SaaS também depende da disponibilidade de investimento e do tempo que será dedicado para a implantação e manutenção da solução em nuvem. 
+
