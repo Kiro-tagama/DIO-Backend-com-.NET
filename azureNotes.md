@@ -1,6 +1,6 @@
 # Notas do curso Azure para AZ-900 (certificado)
 
-### into
+### intro
 existe redes publicas e privadas (auto descritivo)
 
 ### indicadores financieros
@@ -41,4 +41,11 @@ TMP I - tempo de inatividade
 
 ## Tipos de serviços
 
+![Sou uma imagem](https://www.cimm.com.br/portal/uploads/cimm/asset/file/7447/large_aplicativos_hospedados.png)
 
+- IaaS - infraestrutura como serviço
+  - base inicial
+- PaaS - plataforma como serviço
+  - base media com SO e tool dev
+- SaaS - software como serviço
+  - base final que engloba tudo e inclui o app em sim
