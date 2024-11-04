@@ -15,7 +15,7 @@ obs: pasta certificados vou colocar aqueles que achar mais relevantes pois a dio
 - [x] api
 
 ##### o que me interessa
-- [ ] boas praticas
-- [ ] cloud azure
+- [x] boas praticas
+- [x] cloud azure
 - [ ] dotnet in azure
 
