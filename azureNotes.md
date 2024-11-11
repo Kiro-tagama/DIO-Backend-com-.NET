@@ -68,3 +68,7 @@ O uso de IaaS, PaaS e SaaS depende do perfil da empresa e das suas necessidades,
 É indicado para empresas que precisam de uma solução completa de software, sem a necessidade de instalar ou gerenciar aplicações. É uma boa opção para pequenas empresas que não dispõem de orçamento suficiente para comprar licenças, para projetos de curta duração e para quem precisa acessar aplicativos remotamente. 
 A escolha entre IaaS, PaaS ou SaaS também depende da disponibilidade de investimento e do tempo que será dedicado para a implantação e manutenção da solução em nuvem. 
 
+## Deploy
+
+  azure functions para criar funções pequenas e sistemas simples de baixo uso como notificações momentaneas e sistemas de atualização 
+  O preço do plano de consumo flexível inclui uma concessão mensal gratuita de 250.000 execuções e 100.000 GB-s de consumo de recursos por mês por assinatura em preços sob demanda de pagamento conforme o uso em todos os aplicativos de funções dessa assinatura.
